@@ -1,0 +1,22 @@
+pages required:
+1) login pages (email, password)
+2) signup pages (name, email, password)
+3) landing page 
+4) user profile edit
+
+
+PLANTERPRENUR
+1) signup
+2) signin userdetails(aadhar, phone , email, name, address, plantingsCount, amount paid, amount earned(profit) )
+3) homepage ie) stats as count, where v plant, how we plant, plans 
+4) shop plantdetails(img of plant, name, price, category, yield(harvesting time, profit))
+5) myplantings
+6) achienvements
+7) aboutus
+8) profile
+9) gallery (img, buyer name, price)
+=======================
+PRODUCTION:
+1) Profile form
+2) gallery form
+3) shop form
