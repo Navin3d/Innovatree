@@ -1,3 +1,5 @@
+package gmc.project.innovatree.products.models;
+
 public enum Category {
-    PLANTS, HERBS, SHRUBS, TREE
+	PLANTS, HERBS, SHRUBS, SEASONAL
 }

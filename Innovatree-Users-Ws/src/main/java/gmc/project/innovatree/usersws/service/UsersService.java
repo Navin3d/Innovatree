@@ -1,12 +1,16 @@
 package gmc.project.innovatree.usersws.service;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
+import gmc.project.innovatree.usersws.model.DeleteUserModel;
+import gmc.project.innovatree.usersws.model.UsersEditModel;
+import gmc.project.innovatree.usersws.model.UsersInfoModel;
+import gmc.project.innovatree.usersws.shared.UsersDto;
 
-import gmc.project.innovatree.usersws.model.SignUpRequestModel;
-import gmc.project.innovatree.usersws.model.SignUpResponseModel;
-import gmc.project.innovatree.usersws.shared.UserDto;
-
-public interface UsersService extends UserDetailsService {
-	UserDto findUserByUserName(String userName);
-	SignUpResponseModel createUser(SignUpRequestModel signUpRequestModel);
+public interface UsersService {
+	UsersDto findOne(String userId);
+	void deleteUserById(String userId);
+	UsersDto findUserByUserName(String userName);
+	UsersInfoModel logedInUser(String userId);
+	UsersEditModel logedInUserEdit(String userId);
+	UsersInfoModel logedInUserSave(UsersEditModel usersEditModel);
+	void deleteLogedInUser(DeleteUserModel deleteUserModel);
 }
