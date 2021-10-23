@@ -20,6 +20,7 @@ import gmc.project.innovatree.usersws.model.UsersEditModel;
 import gmc.project.innovatree.usersws.model.UsersInfoModel;
 import gmc.project.innovatree.usersws.service.AuthServiceFeignClient;
 import gmc.project.innovatree.usersws.service.UsersService;
+import gmc.project.innovatree.usersws.shared.UsersDto;
 
 @RestController
 @RequestMapping("/users")
@@ -46,6 +47,12 @@ public class UsersController {
 	public ResponseEntity<UsersInfoModel> userLogin(@RequestBody LoginRequestModel loginRequestModel) {
 		authServiceFeignClient.loginUser(loginRequestModel);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(null);
+	}
+	
+	@GetMapping("/{userId}")
+	public UsersDto getUser(@PathVariable String userId) {
+		UsersDto returnValue = usersService.findOne(userId);
+		return returnValue;
 	}
 	
 	@GetMapping("/profile/{userId}")

@@ -31,6 +31,12 @@ public class ProductsController {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(returnValue);
 	}
 	
+	@GetMapping("/topselling")
+	public List<ProductsDto> getTopSellingProduct() {
+		List<ProductsDto> returnValue = productsService.findTopSelling();
+		return returnValue;
+	}
+	
 	@GetMapping("/{productId}/show")
 	public ResponseEntity<ProductsDto> getProductByProductId(@PathVariable String productId) {
 		ProductsDto returnValue = productsService.findOne(productId);

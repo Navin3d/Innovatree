@@ -66,10 +66,16 @@ public class ProductsServiceImpl implements ProductsService {
 	}
 
 	@Override
-	public List<ProductsDto> findTopSelling() {
+	public List<ProductsDto> findTopSelling() {		
+		ModelMapper modelMapper = new ModelMapper();
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		
-		List<ProductsDto> returnValue = findAllProducts().stream()
+		List<ProductsEntity> foundProducts = productsDao.findAll().stream()
 						.filter(product -> product.isTopSelling()).toList();
+		
+		List<ProductsDto> returnValue = new ArrayList<>();
+		
+		foundProducts.iterator().forEachRemaining(product -> returnValue.add(modelMapper.map(product, ProductsDto.class)));
 		
 		return returnValue;
 	}

@@ -16,7 +16,5 @@ public class ProductsDto implements Serializable {
 	private String description;
 	private String price;
 	private Category category;
-	private boolean isTopSelling;
-	private int purchases;
 
 }
