@@ -11,6 +11,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -19,7 +20,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Users")
+@Table(name = "User")
 public class UsersEntity implements Serializable {
 
 	private static final long serialVersionUID = 1148267365553846171L;
@@ -81,12 +82,12 @@ public class UsersEntity implements Serializable {
 	@Column(name = "Is_Mobile_No_Verified", nullable = false)
 	private boolean isMobileNumberVerified = false;
 	
-	@Column(name = "Address")
 	@ManyToMany
+	@JoinColumn(name = "Address_Id")
 	private Set<AddressEntity> addressBook;
 	
-	@Column(name = "Achievements")
 	@ManyToMany
+	@JoinColumn(name = "Achievements_Id")
 	private Set<AchievementsEntity> achievements;
 	
 	public UsersEntity() {

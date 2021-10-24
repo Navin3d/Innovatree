@@ -39,9 +39,21 @@ public class ProductsServiceImpl implements ProductsService {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		
-		ProductsEntity detachedProduct = modelMapper.map(products, ProductsEntity.class);
-		detachedProduct.setProductId(UUID.randomUUID().toString());
-		ProductsEntity savedProduct = productsDao.save(detachedProduct);
+		ProductsEntity foundProduct = null;
+		
+		try {
+			
+			foundProduct = productsDao.findByProductId(products.getProductId());
+			
+		} catch (Exception e) {
+			
+			foundProduct.setProductId(UUID.randomUUID().toString());
+
+		}
+		
+		foundProduct = modelMapper.map(products, ProductsEntity.class);
+		
+		ProductsEntity savedProduct = productsDao.save(foundProduct);
 		
 		ProductsDto returnValue = modelMapper.map(savedProduct, ProductsDto.class);
 		

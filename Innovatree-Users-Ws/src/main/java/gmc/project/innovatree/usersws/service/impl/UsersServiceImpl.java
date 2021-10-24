@@ -1,5 +1,8 @@
 package gmc.project.innovatree.usersws.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -138,6 +141,35 @@ public class UsersServiceImpl implements UsersService {
 		UsersEntity savedUser = userDao.save(foundUser);
 		UsersInfoModel returnValue = modelMapper.map(savedUser, UsersInfoModel.class);
 		
+		return returnValue;
+	}
+
+	@Override
+	public List<String> getUsersEmail() {
+		List<UsersEntity> foundUsers = userDao.findAll();
+		List<String> returnValue = new ArrayList<>();
+		foundUsers.iterator().forEachRemaining(user -> returnValue.add(user.getEmail()));
+		return returnValue;
+	}
+
+	@Override
+	public List<UsersDto> getAllUsers() {
+		ModelMapper modelMapper = new ModelMapper();
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		
+		List<UsersEntity> foundUsers = userDao.findAll();
+		List<UsersDto> returnValue = new ArrayList<>();
+		
+		foundUsers.iterator().forEachRemaining(user -> returnValue.add(modelMapper.map(user, UsersDto.class)));
+
+		return returnValue;
+	}
+
+	@Override
+	public List<String> getUsersPno() {
+		List<UsersEntity> foundUsers = userDao.findAll();
+		List<String> returnValue = new ArrayList<>();
+		foundUsers.iterator().forEachRemaining(user -> returnValue.add(user.getPhoneNumber()));
 		return returnValue;
 	}
 

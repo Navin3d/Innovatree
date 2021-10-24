@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -43,6 +44,7 @@ public class AchievementsEntity implements Serializable {
 	@Column(name = "No_Of_Plantings")
 	private Integer plantsCount;
 	
+	@JoinColumn(name = "User_Id")
 	@ManyToMany
 	private Set<UsersEntity> user;
 	

@@ -5,15 +5,22 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 import gmc.project.innovatree.achievements.models.Role;
+import lombok.Data;
 
+@Data
+@Entity
+@Table(name = "User")
 public class UsersEntity implements Serializable {
 
 	private static final long serialVersionUID = 858526429019110135L;
@@ -76,9 +83,11 @@ public class UsersEntity implements Serializable {
 	private boolean isMobileNumberVerified = false;
 	
 	@ManyToMany
+	@JoinColumn(name = "Address_Id")
 	private Set<AddressEntity> addressBook;
 	
 	@ManyToMany
+	@JoinColumn(name = "Achievements_Id")
 	private Set<AchievementsEntity> achievements;
 	
 	public UsersEntity() {
