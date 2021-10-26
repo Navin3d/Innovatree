@@ -12,7 +12,9 @@ import gmc.project.innovatree.products.entity.ProductsEntity;
 import gmc.project.innovatree.products.services.ProductsService;
 import gmc.project.innovatree.products.dao.ProductsDao;
 import gmc.project.innovatree.products.shared.ProductsDto;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class ProductsServiceImpl implements ProductsService {
 	
@@ -40,20 +42,22 @@ public class ProductsServiceImpl implements ProductsService {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		
 		ProductsEntity foundProduct = null;
-		
-		try {
-			
-			foundProduct = productsDao.findByProductId(products.getProductId());
-			
+						
+		try {			
+			foundProduct = productsDao.findByProductId(products.getProductId());			
 		} catch (Exception e) {
-			
-			foundProduct.setProductId(UUID.randomUUID().toString());
-
+			log.error("Error: " + e);
 		}
 		
-		foundProduct = modelMapper.map(products, ProductsEntity.class);
+		ProductsEntity detachedProduct = modelMapper.map(products, ProductsEntity.class);
 		
-		ProductsEntity savedProduct = productsDao.save(foundProduct);
+		if(foundProduct != null)
+			detachedProduct.setId(foundProduct.getId());
+		
+		if(detachedProduct.getProductId() == null)
+			detachedProduct.setProductId(UUID.randomUUID().toString());
+			
+		ProductsEntity savedProduct = productsDao.save(detachedProduct);
 		
 		ProductsDto returnValue = modelMapper.map(savedProduct, ProductsDto.class);
 		

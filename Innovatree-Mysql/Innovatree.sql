@@ -2,10 +2,15 @@ CREATE DATABASE Innovatree;
 use Innovatree;
 
 SELECT * FROM user;
+SELECT * FROM achievements_user;
 SELECT * FROM products;
+SELECT * FROM user_achievements;
+SELECT * FROM address_users;
 SELECT * FROM achievements;
+SELECT * FROM user_address_book;
+SELECT * FROM address;
 
-DELETE FROM products WHERE id = 2;
+DELETE FROM products WHERE id = 8;
 
 CREATE TABLE `user` (
   `id` bigint NOT NULL AUTO_INCREMENT,
