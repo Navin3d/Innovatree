@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import gmc.project.innovatree.shop.shared.ProductsDto;
 
-@FeignClient("/Innovatree-Product-Ws")
+@FeignClient("Innovatree-Product-Ws")
 public interface ProductsServiceFeignClient {
 	
 	@GetMapping("/product/topselling")

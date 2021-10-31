@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import gmc.project.innovatree.payments.entities.UsersEntity;
 
 public interface UsersDao extends JpaRepository<UsersEntity, Long> {
-
+	public UsersEntity findByUserId(String userId);
 }

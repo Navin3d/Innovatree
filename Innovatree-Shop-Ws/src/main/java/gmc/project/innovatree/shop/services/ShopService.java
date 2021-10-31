@@ -1,5 +1,7 @@
 package gmc.project.innovatree.shop.services;
 
+import gmc.project.innovatree.shop.shared.ProductsDto;
+
 public interface ShopService {
-	public void buyProduct(String userId, String productId);
+	public ProductsDto buyProduct(String userId, String productId);
 }

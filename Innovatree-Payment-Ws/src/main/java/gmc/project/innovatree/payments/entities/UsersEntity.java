@@ -46,8 +46,8 @@ public class UsersEntity implements Serializable {
 	@Column(name = "No_OF_Plants")
 	private Integer plantsCount = 0;
 	
-	@Column(name = "Walet_Balance")
-	private Integer waletBalence = 50;
+	@Column(name = "Wallet_Balance")
+	private Integer walletBalence = 50;
 	
 	@Column(name = "Total_Amount_Paid")
 	private Integer amountPaid = 0;

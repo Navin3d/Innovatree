@@ -1,5 +1,5 @@
 package gmc.project.innovatree.shop.models;
 
 public enum Category {
-	HERBS, SHRUBS, WHATEVER
+	HERBS, SHRUBS, SEASONAL
 }

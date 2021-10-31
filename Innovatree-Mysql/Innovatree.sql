@@ -10,6 +10,10 @@ SELECT * FROM achievements;
 SELECT * FROM user_address_book;
 SELECT * FROM address;
 
+UPDATE products set purchases=2 WHERE id=9;
+
+ALTER TABLE products CHANGE COLUMN `price` `price` int DEFAULT 60;
+
 DELETE FROM products WHERE id = 8;
 
 CREATE TABLE `user` (
@@ -30,7 +34,7 @@ CREATE TABLE `user` (
   `no_of_plants` int DEFAULT NULL,
   `role` varchar(255) NOT NULL,
   `user_id` varchar(255) NOT NULL,
-  `walet_balance` int DEFAULT NULL,
+  `wallet_balance` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_ob8kqyqqgmefl0aco34akdtpe` (`email`),
   UNIQUE KEY `UK_4bgmpi98dylab6qdvf9xyaxu4` (`phone_number`),
@@ -46,7 +50,7 @@ CREATE TABLE `products` (
   `image_url` varchar(255) DEFAULT NULL,
   `is_top_selling` bit(1) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `price` varchar(255) DEFAULT NULL,
+  `price` int DEFAULT NULL,
   `product_id` varchar(255) DEFAULT NULL,
   `purchases` int NOT NULL,
   PRIMARY KEY (`id`)

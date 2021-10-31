@@ -1,4 +1,4 @@
-package gmc.project.innovatree.products.entity;
+package gmc.project.innovatree.shop.entities;
 
 import java.io.Serializable;
 
@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import gmc.project.innovatree.products.models.Category;
+import gmc.project.innovatree.shop.models.Category;
 import lombok.Data;
 
 @Entity
@@ -18,7 +18,7 @@ import lombok.Data;
 @Table(name = "Products")
 public class ProductsEntity implements Serializable {
 
-	private static final long serialVersionUID = -1854303438880549438L;
+	private static final long serialVersionUID = -8380145557548025055L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
