@@ -1,0 +1,12 @@
+package gmc.project.innovatree.payments.models;
+
+import lombok.Data;
+
+@Data
+public class RechargeModel {
+	
+	private String userId;
+	private String pinNumber;
+	private Integer rechargeAmount;
+
+}
