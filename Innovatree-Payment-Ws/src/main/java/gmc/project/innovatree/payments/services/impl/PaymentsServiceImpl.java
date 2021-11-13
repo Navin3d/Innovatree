@@ -60,7 +60,7 @@ public class PaymentsServiceImpl implements PaymentsService {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		
-		UsersEntity admin = usersDao.findByUserId("0df2ef42-95c4-4472-adc2-93e4925e45c2");
+		UsersEntity admin = usersDao.findByUserId("301b8f82-eb20-4e01-862d-cf06fdb8c489");
 		
 		UsersEntity foundUser = null;		
 		try {

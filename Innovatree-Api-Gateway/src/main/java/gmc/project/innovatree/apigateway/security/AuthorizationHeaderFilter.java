@@ -1,4 +1,4 @@
-package gmc.project.innovatree.apigateway;
+package gmc.project.innovatree.apigateway.security;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;

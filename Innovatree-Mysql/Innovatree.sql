@@ -1,6 +1,8 @@
 CREATE DATABASE Innovatree;
 use Innovatree;
 
+drop database Innovatree;
+
 SELECT * FROM user;
 SELECT * FROM achievements_user;
 SELECT * FROM products;
@@ -10,11 +12,11 @@ SELECT * FROM achievements;
 SELECT * FROM user_address_book;
 SELECT * FROM address;
 
-UPDATE products set purchases=2 WHERE id=9;
+UPDATE user set role="ADMIN" WHERE id=1;
 
 ALTER TABLE products CHANGE COLUMN `price` `price` int DEFAULT 60;
 
-DELETE FROM products WHERE id = 8;
+DELETE FROM user WHERE id = 7;
 
 CREATE TABLE `user` (
   `id` bigint NOT NULL AUTO_INCREMENT,

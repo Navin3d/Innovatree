@@ -15,8 +15,9 @@ public class UsersInfoModel {
 	private Integer plantsCount;
 	private String email;
 	private String phoneNumber;
-	private boolean isActive;
-	private boolean isEmailVerified;
+	private Integer walletBalence;
+	private Integer amountPaid;
+	private Integer amountEarned;
 	private List<AddressModel> addressBook;
 	private List<AchievementsModel> achievements;
 	
